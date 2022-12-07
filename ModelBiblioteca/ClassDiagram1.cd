@@ -10,7 +10,7 @@
   <Class Name="ModelBiblioteca.Models.Book">
     <Position X="8.75" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAgAAAAAAAAAAEAAgACAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <HashCode>gAgAAAAAAAQAAEAAgACAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
       <FileName>Models\Book.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -18,7 +18,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="ModelBiblioteca.Models.Category">
-    <Position X="12" Y="4.5" Width="1.5" />
+    <Position X="11.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAEAAAQAAgAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Models\Category.cs</FileName>
@@ -41,5 +41,31 @@
       <FileName>Models\WordKey.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="ModelBiblioteca.Models.TrafficBook">
+    <Position X="12.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAACAAAAAAAAAAAAAAAAAAAAAAAABQAAAAAAAAAA=</HashCode>
+      <FileName>Models\TrafficBook.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Instance" />
+      <Property Name="User" />
+      <Property Name="TrafficDir" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ModelBiblioteca.Models.User">
+    <Position X="16" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAAAAAAAAAAAAAIAAAAAgAAAAAAAAg=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ModelBiblioteca.Models.TrafficDir">
+    <Position X="12.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\TrafficBook.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
