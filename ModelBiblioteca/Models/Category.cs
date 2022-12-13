@@ -10,11 +10,16 @@ namespace ModelBiblioteca.Models
     {
         public int Id { get; set; }
         public string Name { get; set; } = null!;
-        public Category Categor { get; set; } = null!;
-        public int CategoryId { get; set; }
+        public Category? Categor { get; set; }
+        
         public virtual void AddCategory(Category category)
         {
            Categor = category;
         }
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
+
     }
 }

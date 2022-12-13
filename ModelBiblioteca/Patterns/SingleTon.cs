@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ModelBiblioteca.Patterns
 {
-    internal static class SingleTon
+    public static class SingleTon
     {
-        internal static AppContextDB DB { get; set; }
+        public static AppContextDB DB { get; set; }
 
         static SingleTon()
         {

@@ -6,18 +6,11 @@ using System.Threading.Tasks;
 
 namespace ModelBiblioteca.Models
 {
-    public enum TrafficDir
-    {
-        inlibraly=1,
-        inUser=-1
-
-    }
-    public class TrafficBook
+    public class StateBook
     {
         public int Id { get; set; }
-        public DateTime Date {get;set;}
-        public User? User {get;set;}
-        public InstanceBook Instance { get; set; } = null!;
         public TrafficDir TrafficDir { get; set; }
+        public Book Book { get; set; } 
+        public int BookId { get; set; }
     }
 }

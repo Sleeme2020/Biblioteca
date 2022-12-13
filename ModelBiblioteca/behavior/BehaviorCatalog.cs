@@ -10,12 +10,13 @@ namespace ModelBiblioteca.behavior
 {
     public class BehaviorCatalog
     {
-        public void add(Category category,Category owner=null)
+        public static void add(Category category,Category owner=null)
         {
             if (owner != null)
-                category.Categor = owner;
-            SingleTon.DB.Add(category);
+                owner.AddCategory(category);
+            SingleTon.DB.Categories.Add(category);
             SingleTon.DB.SaveChanges();
+            BehavorBook.updcat();
 
         }
     }

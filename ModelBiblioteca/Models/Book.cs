@@ -24,5 +24,10 @@ namespace ModelBiblioteca.Models
                 throw new ArgumentException("Book in book is never implement");
         }
 
+        public override string ToString()
+        {
+            return $"{Name} - {Autor}";
+        }
+
     }
 }
