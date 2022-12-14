@@ -77,6 +77,7 @@
         #endregion
 
         private Button button1;
+        private TextBox textBox1;
         private Label label1;
         public TextBox textBox1;
     }
