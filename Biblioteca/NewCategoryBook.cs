@@ -34,11 +34,16 @@ namespace Biblioteca
                 switch(category)
                 {
                     case Book book:
-
+                        textBox1.Text = value.Name;
+                        comboBox1.SelectedItem = value.Categor;
+                        richTextBox1.Text = (value as Book).Title;
+                        comboBox2.SelectedItem = (value as Book).Autor;
+                        dateTimePicker1.Value = (value as Book).PublicDate;
                         break;
 
                     case Category cat:
-
+                        textBox1.Text = value.Name;
+                        comboBox1.SelectedItem = value.Categor;
                         break;
                 }
             }
@@ -47,11 +52,13 @@ namespace Biblioteca
         {
            
             InitializeComponent();
-            TypeCat = typeObj;
-            Category = category;
+            
             if (typeObj == TypeObj.Category)
                 panel1.Visible = false;
             comboBox1.Items.AddRange(BehavorBook.GetCategory());
+            comboBox2.Items.AddRange(BehaviorAutor.GetAutor());
+            TypeCat = typeObj;
+            Category = category;
             //if(typeObj == TypeObj.Book)
             //    comboBox2.Items.AddRange(BehavorBook.);
         }
@@ -59,7 +66,20 @@ namespace Biblioteca
         private void button1_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
-            Tag = GetCategory();
+            if(category==null)
+                Tag = GetCategory();
+            else
+            {
+                category.Name = textBox1.Text;
+                category.Categor = comboBox1.SelectedItem as Category;
+                if(category is Book)
+                {
+                    (category as Book).Title = richTextBox1.Text;
+                    (category as Book).Autor = comboBox2.SelectedItem as Autor;
+                    (category as Book).PublicDate = dateTimePicker1.Value;
+                }
+                Tag = category;
+            }
         }
 
         Category GetCategory()
@@ -88,6 +108,16 @@ namespace Biblioteca
                     default:                    
                     throw new Exception("Не верный параметр");
                    
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            AddAutors addAutors = new();
+            if(addAutors.ShowDialog()== DialogResult.OK)
+            {
+                comboBox2.Items.Clear();
+                comboBox2.Items.AddRange(BehaviorAutor.GetAutor());
             }
         }
     }

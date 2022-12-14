@@ -19,5 +19,12 @@ namespace ModelBiblioteca.behavior
             BehavorBook.updcat();
 
         }
+
+        public static void Update(Category category)
+        {
+            SingleTon.DB.Categories.Update(category);
+            SingleTon.DB.SaveChanges();
+            BehavorBook.updcat();
+        }
     }
 }
