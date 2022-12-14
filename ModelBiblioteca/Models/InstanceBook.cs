@@ -12,5 +12,6 @@ namespace ModelBiblioteca.Models
         public string Number { get; set; } = null!;
         public Book Book { get; set; } = null!;
         public int BookId { get; set; }
+        public StateBook? StateBook { get; set; }
     }
 }

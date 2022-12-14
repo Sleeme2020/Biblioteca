@@ -10,7 +10,7 @@ namespace ModelBiblioteca.Models
     {
         public int Id { get; set; }
         public TrafficDir TrafficDir { get; set; }
-        public Book Book { get; set; } 
-        public int BookId { get; set; }
+        public InstanceBook InstanseBook { get; set; } 
+        public int BookId { get; set; }        
     }
 }

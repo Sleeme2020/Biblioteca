@@ -18,7 +18,8 @@ namespace ModelBiblioteca.behavior
         }
         static List<Category> books = new List<Category>();
         static BehavorBook()
-        {            
+        {
+                SingleTon.DB.Autors.Load();
                 SingleTon.DB.Categories.Load();
                 books.AddRange(SingleTon.DB.Categories.ToArray());           
         }
@@ -63,6 +64,10 @@ namespace ModelBiblioteca.behavior
         public static Category GetCatalog(int id)
         {
            return books.Where(u => u.Id == id).FirstOrDefault();
+        }
+        public static Category[] GetCatalogs(Category id)
+        {
+            return books.Where(u => u.Categor == id).ToArray();
         }
 
         public static Category[] GetCategory()

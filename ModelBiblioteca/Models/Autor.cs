@@ -9,5 +9,9 @@
         public DateTime BirthDay { get; set; }
         public List<Book> Books { get; set; }
 
+        public override string ToString()
+        {
+            return $"{FirstName} {Name} {LastName}";
+        }
     }
 }

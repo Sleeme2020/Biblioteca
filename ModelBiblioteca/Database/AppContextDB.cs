@@ -33,10 +33,15 @@ namespace ModelBiblioteca.Database
         {
             modelBuilder.Entity<StateBook>().HasIndex(u => new { u.BookId, u.TrafficDir }).IsUnique();
             modelBuilder.Entity<WordKey>().HasIndex(u => u.Name).IsUnique();
-      //      modelBuilder.Entity<Category>()
-      //.HasOne<Category>(d => d.Categor)
-      //.WithMany(u=>u.Categories)
-      //.HasForeignKey(u =>u.CategorId);
+            modelBuilder.Entity<InstanceBook>().HasOne(u => u.StateBook)
+                .WithOne(u => u.InstanseBook)
+                .HasForeignKey<InstanceBook>(u => u.Id);
+            modelBuilder.Entity<InstanceBook>().Property(u => u.Id).ValueGeneratedOnAdd();
+            modelBuilder.Entity<StateBook>().Property(u => u.Id).ValueGeneratedOnAdd();
+            //      modelBuilder.Entity<Category>()
+            //.HasOne<Category>(d => d.Categor)
+            //.WithMany(u=>u.Categories)
+            //.HasForeignKey(u =>u.CategorId);
             // modelBuilder.Entity<Category>().HasKey(u => u.Id);
             //modelBuilder.Entity<Category>().Property(u => u.Id).ValueGeneratedOnAdd();
 
