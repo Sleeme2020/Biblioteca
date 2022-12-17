@@ -9,8 +9,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ModelBiblioteca.behavior
 {
+    public static class BehaviorInstanse
     {
-            return SingleTon.DB.InstanceBooks.Where(u=>u.Book==book).ToArray();
+        public static void Add(InstanceBook instanceBook)
+        {
+            SingleTon.DB.InstanceBooks.Add(instanceBook);
+            SingleTon.DB.SaveChanges();
+        }
+
+        public static InstanceBook[] GetInstanceBooks()
+        {
+            SingleTon.DB.InstanceBooks.Include(u=>u.StateBook).Load();
+            return SingleTon.DB.InstanceBooks.ToArray();
+        }
+
+        public static InstanceBook[] GetInstanceBooks(Book book)
+        {
+            return SingleTon.DB.InstanceBooks.Include(u => u.StateBook).Where(u => u.Book == book).ToArray();
         }
 
     }

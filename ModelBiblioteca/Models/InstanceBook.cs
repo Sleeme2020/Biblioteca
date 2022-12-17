@@ -11,7 +11,19 @@ namespace ModelBiblioteca.Models
         public int Id { get; set; }
         public string Number { get; set; } = null!;
         public Book Book { get; set; } = null!;
-        public int BookId { get; set; }
-        public StateBook? StateBook { get; set; }
+        public StateBook StateBook { get; set; }
+
+        public InstanceBook NewState()
+        {
+            StateBook = new StateBook();
+            StateBook.TrafficDir = TrafficDir.inlibraly;
+            StateBook.InstanseBook = this;
+            return this;
+        }
+
+        public override string ToString()
+        {
+            return $"{Number} - {StateBook}";
+        }
     }
 }

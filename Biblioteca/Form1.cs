@@ -97,41 +97,8 @@ namespace Biblioteca
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                NewCategoryBook newCategoryBook = new NewCategoryBook(NewCategoryBook.TypeObj.Book);
-                if (newCategoryBook.ShowDialog() == DialogResult.OK)
-                {
-                    BehaviorCatalog.add(newCategoryBook.Tag as Category);
-                    StartThreeLoad();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                NewCategoryBook newCategoryBook = new NewCategoryBook(NewCategoryBook.TypeObj.Book,treeView1.SelectedNode.Tag as Category);
-                if (newCategoryBook.ShowDialog() == DialogResult.OK)
-                {
-                    BehaviorCatalog.Update(newCategoryBook.Tag as Category);
-                    StartThreeLoad();
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -147,6 +114,20 @@ namespace Biblioteca
                 listBox1.Items.AddRange(BehaviorInstanse.GetInstanceBooks());
             }
         }
+
+        void UpdKeyWord()
+        {
+            richTextBox1.Text.Trim();
+            if(treeView1.SelectedNode.Tag is Book)
+            {
+                var Word=BehaviorWordKey.GetWordKey(treeView1.SelectedNode.Tag as Book); 
+                foreach(var word in Word)
+                {
+                    richTextBox1.Text += word.Name + ",";
+                }
+            }
+        }
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (treeView1.SelectedNode.Tag is Book)
@@ -154,12 +135,13 @@ namespace Biblioteca
                 AddInstanse addInstanse = new();
                 if (addInstanse.ShowDialog() == DialogResult.OK)
                 {
+                    
                     BehaviorInstanse.Add(
                         new InstanceBook()
                         {
                             Book = treeView1.SelectedNode.Tag as Book,
-                            Number = addInstanse.textBox1.Text
-                        }
+                            Number = addInstanse.textBox1.Text,                            
+                        }.NewState()
                         );
                     updinstance();
                 }
@@ -174,6 +156,15 @@ namespace Biblioteca
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
             updinstance();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            AddWord addWord = new AddWord();
+            if(addWord.ShowDialog()==DialogResult.OK)
+            {
+
+            }
         }
     }
 }

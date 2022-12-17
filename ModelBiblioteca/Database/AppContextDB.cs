@@ -31,11 +31,11 @@ namespace ModelBiblioteca.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<StateBook>().HasIndex(u => new { u.BookId, u.TrafficDir }).IsUnique();
+           
             modelBuilder.Entity<WordKey>().HasIndex(u => u.Name).IsUnique();
             modelBuilder.Entity<InstanceBook>().HasOne(u => u.StateBook)
                 .WithOne(u => u.InstanseBook)
-                .HasForeignKey<InstanceBook>(u => u.Id);
+                .HasForeignKey<StateBook>(u => u.Id);
             modelBuilder.Entity<InstanceBook>().Property(u => u.Id).ValueGeneratedOnAdd();
             modelBuilder.Entity<StateBook>().Property(u => u.Id).ValueGeneratedOnAdd();
             //      modelBuilder.Entity<Category>()

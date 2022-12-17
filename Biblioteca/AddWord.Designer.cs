@@ -1,6 +1,6 @@
 ﻿namespace Biblioteca
 {
-    partial class AddInstanse
+    partial class AddWord
     {
         /// <summary>
         /// Required designer variable.
@@ -30,45 +30,34 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 85);
+            this.button1.Location = new System.Drawing.Point(12, 67);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(308, 33);
+            this.button1.Size = new System.Drawing.Size(324, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Сохранить";
+            this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 34);
+            this.textBox1.Location = new System.Drawing.Point(12, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(308, 23);
+            this.textBox1.Size = new System.Drawing.Size(324, 23);
             this.textBox1.TabIndex = 1;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(115, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Серийный номер";
-            // 
-            // AddInstanse
+            // AddWord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(332, 140);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(348, 111);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
-            this.Name = "AddInstanse";
-            this.Text = "AddInstanse";
+            this.Name = "AddWord";
+            this.Text = "AddWord";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -77,7 +66,6 @@
         #endregion
 
         private Button button1;
-        private Label label1;
         public TextBox textBox1;
     }
 }
