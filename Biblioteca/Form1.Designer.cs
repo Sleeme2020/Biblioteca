@@ -143,6 +143,7 @@
             this.button6.TabIndex = 11;
             this.button6.Text = "Открыть";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // linkLabel1
             // 
@@ -163,6 +164,7 @@
             this.button7.TabIndex = 13;
             this.button7.Text = "Изменить";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 

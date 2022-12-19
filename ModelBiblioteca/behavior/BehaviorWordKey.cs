@@ -13,7 +13,7 @@ namespace ModelBiblioteca.behavior
     {
         public static WordKey[] GetWordKey(Book book)
         {
-            return SingleTon.DB.WordKeys.Where(w => w.Books.Equals(book)).ToArray();
+            return SingleTon.DB.WordKeys.Where(u=>u.Books.Any(u=>u.Id==book.Id)).ToArray();
         }
 
         public static Book[] GetWordKeyBook(string s)
@@ -34,11 +34,13 @@ namespace ModelBiblioteca.behavior
             }
             else
             {
+                if (book.WordKeys == null)
+                    SingleTon.DB.Books.Where(u => u.Id == book.Id).Include(u => u.WordKeys).Load();
                 book.WordKeys.Add(new WordKey()
                 {
                     Name =s                    
                 });
-                SingleTon.DB.Books.Add(book);
+                SingleTon.DB.Books.Update(book);
             }
             SingleTon.DB.SaveChanges();
 

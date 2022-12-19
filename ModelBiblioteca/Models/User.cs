@@ -14,5 +14,10 @@ namespace ModelBiblioteca.Models
         public DateTime CreatedDate { get; set; }
         public DateTime BirthDay { get; set; }
 
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName} - {BirthDay}";
+        }
+
     }
 }
